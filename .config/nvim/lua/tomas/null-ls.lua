@@ -7,5 +7,6 @@ require("null-ls").setup({
           '--jsx-single-quote'
         }
       }),
+      require("null-ls").builtins.formatting.clang_format,
     },
 })

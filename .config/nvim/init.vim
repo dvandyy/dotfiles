@@ -2,7 +2,7 @@
 call plug#begin('~/.local/share/nvim/site/autoload/plug')
 
 "AUTOCOMPLETE INTELISENSE
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -30,10 +30,7 @@ Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 Plug 'honza/vim-snippets'
 "THEME
 Plug 'itchyny/lightline.vim'
-Plug 'ajmwagar/vim-deus'
-"SPECIFIC LANG
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
@@ -50,11 +47,12 @@ set autoindent
 set noshowmode
 set smartindent
 set nu
-set nowrap
 set noswapfile
 set noerrorbells
+set termguicolors
 set hidden
 set incsearch
+set cursorline
 set expandtab
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 set encoding=utf8
@@ -63,11 +61,15 @@ set scrolloff=10
 set mouse=a
 
 "--- Color scheme
-colorscheme deus
+colorscheme onedark
 set background=dark
 
 "--- Ultisnips
-au BufNewFile,BufRead *.tsx,*.jsx UltiSnipsAddFiletypes javascript.html
+au BufNewFile,BufRead *.tsx,*.jsx,*.vue UltiSnipsAddFiletypes javascript.html
+
+"--- Use background from terminal
+hi Normal guibg=NONE ctermbg=NONE
+hi EndOfBuffer guibg=NONE ctermbg=NONE
 
 "-- Null_ls formating
 nnoremap <leader>fa :lua vim.lsp.buf.formatting()<CR>
