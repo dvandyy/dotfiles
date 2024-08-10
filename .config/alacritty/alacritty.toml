@@ -9,4 +9,8 @@ dynamic_title = false
 hide_when_typing = true
 
 [colors.primary]
-background = "#262626"
+background = "#313445"
+
+[env]
+term = "alacritty-direct"
+
